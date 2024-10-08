@@ -6,14 +6,6 @@
 //para que cada tipo de transporte implemente acelerar() e frear() de
 //maneira diferente.
 
-//6. Polimorfismo com Classes Abstratas
-//O Objetivo: Crie uma classe abstrata Animal com um método abstrato
-//emitirSom(). Crie subclasses Cachorro, Gato e Vaca, cada uma
-//implementando emitirSom() de maneira específica. Crie uma lista de
-//Animal no método principal e adicione instâncias de cada subclasse. Itere
-//sobre a lista e invoque o método emitirSom() para cada animal,
-//demonstrando o polimorfismo.
-
 interface IMeioTransporte {
     void acelerar();
 
@@ -50,39 +42,12 @@ class Trem implements IMeioTransporte {
     }
 }
 
-abstract class Animal {
-    abstract void emitirSom();
-}
-
-class Cachorro extends Animal {
-    void emitirSom() {
-        System.out.println("Cachorro latindo");
-    }
-}
-
-class Gato extends Animal {
-    void emitirSom() {
-        System.out.println("Gato miando");
-    }
-}
-
-class Vaca extends Animal {
-    void emitirSom() {
-        System.out.println("Vaca mugindo");
-    }
-}
-
 public class MeioTransporte {
     public static void main(String[] args) {
         IMeioTransporte[] transportes = { new Carro(), new Bicicleta(), new Trem() };
         for (IMeioTransporte transporte : transportes) {
             transporte.acelerar();
             transporte.frear();
-        }
-
-        Animal[] animais = { new Cachorro(), new Gato(), new Vaca() };
-        for (Animal animal : animais) {
-            animal.emitirSom();
         }
     }
 }
